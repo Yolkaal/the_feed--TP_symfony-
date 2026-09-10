@@ -25,7 +25,7 @@ final class DemoController extends AbstractController
     public function courses($nom): Response
     {
         $wlcm_msg = "course liste for ". $nom ." :3 !";
-        $courses = ["rx7900xtx", "r9 9950X3D", "lenovo OLED 180hz", "X870 elite Aorus"];
+        $courses = ["rx7900xtx", "r9 9950X3D", "lenovo OLED 180hz", "X870 elite Aorus", "Reinhardt minifig"];
         return $this->render("demo/demo3.html.twig", ["param1" => $wlcm_msg, "courses" => $courses]);
     }
 }

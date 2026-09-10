@@ -1,12 +1,20 @@
 <!DOCTYPE html>
- <html>
-     <head>
-         <meta charset="UTF-8">
-         <title>Demo</title>
-     </head>
-     <body>
-         {% for item in courses %}
-            <p>{{ item }}</p>
-         {% endfor %}
-     </body>
- </html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Demo</title>
+    </head>
+    <body>
+        <ul>
+        {% for item in courses %}
+            <li>
+                {% if item == 'Reinhardt minifig' %}
+                    <strong>{{ item }}</strong>
+                {% else %}
+                    {{ item }}
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    </body>
+</html>
