@@ -5,6 +5,9 @@
         <title>Demo</title>
     </head>
     <body>
+        {% for flashMessage in app.flashes('success') %}
+            <div>{{ flashMessage }}</div>
+        {% endfor %}
         <ul>
         {% for item in courses %}
             <li>
