@@ -47,4 +47,11 @@ class Publication
 
         return $this;
     }
+
+    public function prePersistDatePublication(): static
+    {
+        $this->datePublication = new \DateTime();
+
+        return $this;
+    }
 }

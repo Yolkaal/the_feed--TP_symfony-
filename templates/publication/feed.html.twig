@@ -16,7 +16,20 @@
          </header>
          <main id="the-feed-main">
              <div id="feed">
-                 {% for publication in publications %}
+                {{ form_start(form, {'attr' : {'id' : "feedy-new"}}) }}
+                    <fieldset>
+                        <legend>Nouveau feedy</legend>
+                        <div>
+                            {{ form_widget(form.message) }}
+                        </div>
+                        <div>
+                            {{ form_widget(form.publier,  {'id' : "feedy-new-submit"}) }}
+                        </div>
+                    </fieldset>
+                {{ form_rest(form) }}
+                {{ form_end(form) }}
+
+                {% for publication in publications %}
                     <div class="feedy">
                          <div class="feedy-header">
                              <a href="">
