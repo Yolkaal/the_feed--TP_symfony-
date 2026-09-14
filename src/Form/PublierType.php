@@ -20,8 +20,10 @@ class PublierType extends AbstractType
         $builder
             ->add('message',
                 TextareaType::class,
-                ['attr' => ['placeholder' => "Qu'avez-vous en tête?"],
-                    "constraints" => [
+                ['attr' => ['placeholder' => "Qu'avez-vous en tête?",
+                    'minlength' => 4,
+                    'maxlength' => 200],
+                    'constraints' => [
                         new NotBlank(message: 'Ce champ est obligatoire'),
                         new Length(
                             min: 4,
@@ -29,7 +31,8 @@ class PublierType extends AbstractType
                             minMessage: 'Il faut au moins {{ limit }} caractères!',
                             maxMessage: 'Il faut au plus {{ limit }} caractères!',
                         ),
-                    ]])
+                    ],
+                ])
             ->add('publier', SubmitType::class, ['label' => 'Feeder !'])
         ;
     }

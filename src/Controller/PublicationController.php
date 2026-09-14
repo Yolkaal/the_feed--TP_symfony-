@@ -25,11 +25,12 @@ final class PublicationController extends AbstractController
             $publication->prePersistDatePublication();
             $entityManager->persist($publication);
             $entityManager->flush();
+            $successMsg = 'Publication enregistrée avec succès';
             return $this->redirectToRoute('feed');
         }
 
         $publications = $publicationRepository->findAllOrderedByDate();
 
-        return $this->render('publication/feed.html.twig', ['publications' => $publications, 'form' => $form]);
+        return $this->render('publication/feed.html.twig', ['publications' => $publications, 'form' => $form,]);
     }
 }

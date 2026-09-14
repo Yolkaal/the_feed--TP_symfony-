@@ -1,52 +1,45 @@
-<!DOCTYPE html>
- <html lang="fr">
-     <head>
-        <title>The Feed</title>
-        <meta charset="utf-8">
-        {{importmap('app')}}
-     </head>
-     <body>
-         <header>
-             <div id="titre" class="center">
-                 <a href="{{ path('feed') }}"><span>The Feed</span></a>
-                 <nav>
-                     <a href="{{ path('feed') }}">Accueil</a>
-                 </nav>
-             </div>
-         </header>
-         <main id="the-feed-main">
-             <div id="feed">
-                {{ form_start(form, {'attr' : {'id' : "feedy-new"}}) }}
-                    <fieldset>
-                        <legend>Nouveau feedy</legend>
-                        <div>
-                            {{ form_widget(form.message) }}
-                        </div>
-                        <div>
-                            {{ form_widget(form.publier,  {'id' : "feedy-new-submit"}) }}
-                        </div>
-                    </fieldset>
-                {{ form_rest(form) }}
-                {{ form_end(form) }}
 
-                {% for publication in publications %}
-                    <div class="feedy">
-                         <div class="feedy-header">
-                             <a href="">
-                                 <img class="avatar"
-                                 src="{{ asset('img/utilisateurs/anonyme.jpg') }}"
-                                 alt="avatar de l'utilisateur">
-                             </a>
-                             <div class="feedy-info">
-                                 <span>Anonyme</span>
-                                 <span> - </span>
-                                 <span>{{ publication.datePublication|date('d/m/Y') }}</span>
-                                 <p>{{ publication.message }}</p>
-                             </div>
-                     </div>
-                 </div>
-                 {% endfor %}
-             </div>
-         </main>
-     </body>
- </html>
+{% extends 'base.html.twig' %}
+
+{% block page_title %}
+    <title>The Feed</title>
+{% endblock %}
+
+{% block page_content %}
+<main id="the-feed-main">
+    <div id="feed">
+       {{ form_start(form, {'attr' : {'id' : "feedy-new"}}) }}
+           <fieldset>
+               <legend>Nouveau feedy</legend>
+               <div>
+                   {{ form_errors(form.message) }}
+
+                   {{ form_widget(form.message) }}
+               </div>
+               <div>
+                   {{ form_widget(form.publier,  {'id' : "feedy-new-submit"}) }}
+               </div>
+           </fieldset>
+       {{ form_rest(form) }}
+       {{ form_end(form) }}
+
+       {% for publication in publications %}
+           <div class="feedy">
+                <div class="feedy-header">
+                    <a href="">
+                        <img class="avatar"
+                        src="{{ asset('img/utilisateurs/anonyme.jpg') }}"
+                        alt="avatar de l'utilisateur">
+                    </a>
+                    <div class="feedy-info">
+                        <span>Anonyme</span>
+                        <span> - </span>
+                        <span>{{ publication.datePublication|date('d/m/Y') }}</span>
+                        <p>{{ publication.message }}</p>
+                    </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
