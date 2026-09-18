@@ -1,26 +1,24 @@
 <!DOCTYPE html>
- <html lang="fr">
-     <head>
-         {% block title %}
-         {% endblock %}
-         <meta name="turbo-cache-control" content="no-preview">
-         <meta charset="utf-8">
-         {{importmap('app')}}
-     </head>
-     <body>
-         <header>
-             <div id="titre" class="center">
-                 <a href="{{ path('feed') }}"><span>The Feed</span></a>
-                 <nav>
-                     <a href="{{ path('feed') }}">Accueil</a>
-                 </nav>
-             </div>
-         </header>
-         <div id="flashes-container">
-
-         </div>
-         {% block page_content %}
-         {% endblock %}
-
-     </body>
- </html>
+<html lang="fr">
+    <head>
+        {% block page_title %}
+        {% endblock %}
+        <meta name="turbo-cache-control" content="no-preview">
+        <meta charset="utf-8">
+        {{importmap('app')}}
+    </head>
+    <body>
+        <header>
+            <div id="titre" class="center">
+                <a href="{{ path('feed') }}"><span>The Feed</span></a>
+                <nav>
+                    <a href="{{ path('feed') }}">Accueil</a>
+                </nav>
+            </div>
+        </header>
+        <div id="flashes-container">
+        </div>
+        {% block page_content %}
+        {% endblock %}
+    </body>
+</html>
